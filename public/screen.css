@@ -10,9 +10,51 @@ body {
   margin: 0;
   min-height: 100%;
 }
-.FirstSection {
+.firstSection {
   display: flex;
-  flex-direction: column;
-  align-content: center;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstSubSection {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.myDeck {
+  text-align: center;
+  background: cadetblue;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+.Player {
+  /* display: flex;
+  flex-direction: column; */
+  text-align: center;
+  background: cadetblue;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.Turn {
+  text-align: center;
+  background: cadetblue;
+  margin: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.secondSubSection {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  justify-content: center;
+  background: cadetblue;
+  border-radius: 0.5rem;
+  margin: 0.2rem 31rem 0 31rem;
+}
+.colorTurn {
   background: yellow;
 }

@@ -1,19 +1,21 @@
+let numPlayer = 0
+let turnPlayer = -1
 let myCardType = [
-  '2',
-  '3',
-  '4',
-  '5',
-  '6',
-  '7',
-  '8',
-  '9',
-  '10',
-  'J',
-  'Q',
-  'k',
-  'A'
+  '2 of ',
+  '3 of ',
+  '4 of ',
+  '5 of ',
+  '6 of ',
+  '7 of',
+  '8 of ',
+  '9 of ',
+  '10 of ',
+  'Jack of ',
+  'Queen of ',
+  'King of',
+  'Ace of'
 ]
-let myCardForma = ['S', 'H', 'C', 'D']
+let myCardForma = ['Spades', 'Heart', ' Clubs', 'Diamonds']
 let myDeck = []
 
 const main = () => {
@@ -26,7 +28,6 @@ const fillDeck = () => {
   for (let y = 0; y < myCardType.length; y++) {
     for (let z = 0; z < myCardForma.length; z++) {
       myDeck.push(myCardType[y] + myCardForma[z])
-      console.log(myDeck)
     }
   }
 }
@@ -40,21 +41,57 @@ const myShufflingDeck = () => {
     temp = myDeck[j]
     myDeck[j] = myDeck[i]
     myDeck[i] = temp
-    console.log(myDeck)
   }
+  document.querySelector('.playerLabel').disabled = false
+  document.querySelector('.addPlayerButton').disabled = false
+  document.querySelector('.myDeckButton').disabled = true
+  document.querySelector('.changeTurnButton').disabled = true
 }
 
 const dealMyCard = () => {
   let myCard = myDeck[0]
-  let temp = document.querySelector('.myPlayer').textContent
   myDeck.shift()
-  if (temp === '') {
-    document.querySelector('.myPlayer').textContent = myCard
-  } else {
-    document.querySelector('.myPlayer').textContent = temp + '-' + myCard
+
+  if (turnPlayer >= numPlayer) {
+    turnPlayer = 0
   }
+
+  document.getElementById('myPlayer').childNodes[
+    turnPlayer
+  ].textContent = myCard
+
+  document.querySelector('.myDeckButton').disabled = true
+  document.querySelector('.changeTurnButton').disabled = false
+}
+
+const addNumberPlayer = () => {
+  numPlayer = document.querySelector('.playerText').value
+  if (!numPlayer == '') {
+    document.querySelector('.playerLabel').textContent = 'Player: ' + numPlayer
+    document.querySelector('.playerText').value = ''
+    document.querySelector('.playerLabel').disabled = true
+    document.querySelector('.addPlayerButton').disabled = true
+    document.querySelector('.changeTurnButton').disabled = false
+    for (let i = 0; i < numPlayer; i++) {
+      let newList = document.createElement('li')
+      newList.textContent = ''
+      document.getElementById('myPlayer').appendChild(newList)
+    }
+  }
+}
+
+const changeTurn = () => {
+  turnPlayer++
+  document.querySelector('.myDeckButton').disabled = false
+  document.querySelector('.changeTurnButton').disabled = true
 }
 
 document.addEventListener('DOMContentLoaded', myShufflingDeck)
 
 document.querySelector('.myDeckButton').addEventListener('click', dealMyCard)
+document
+  .querySelector('.addPlayerButton')
+  .addEventListener('click', addNumberPlayer)
+document
+  .querySelector('.changeTurnButton')
+  .addEventListener('click', changeTurn)

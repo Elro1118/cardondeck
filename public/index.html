@@ -8,13 +8,25 @@
     <link rel="stylesheet" href="/screen.css" />
   </head>
   <body>
-    <section class="FirstSection">
-      <Section class="FirstSubSection">
-        <h1>My Deck</h1>
-        <button class="myDeckButton">Deck</button>
+    <section class="firstSection">
+      <Section class="firstSubSection">
+        
+        <section class="Player">
+            <h1 class='playerLabel'>Player</h1>
+            <input type="text" class="playerText" />
+          <button class="addPlayerButton">Add Nro Player</button
+            ></section>
+          <section class="myDeck">
+              <h1>My Deck</h1>
+              <button class="myDeckButton">Deck</button>
+            </section>
+        <section class="Turn">
+            <h1>Turn</h1>
+            <button class="changeTurnButton">Take a Turn</button></section>
+        </section>
       </Section>
-      <section class="SecondSubSection">
-        <p class="myPlayer"></p>
+      <section class="secondSubSection">
+        <ol id="myPlayer"></ol>
       </section>
     </section>
     <script src="/main.js" charset="utf-8"></script>
