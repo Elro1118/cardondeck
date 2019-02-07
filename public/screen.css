@@ -23,6 +23,13 @@ body {
   align-items: center;
   justify-content: center;
 }
+.adSection {
+  text-align: center;
+  background: cadetblue;
+  margin: 0.5rem;
+  width: 100%;
+  border-radius: 0.5rem;
+}
 
 .myDeck {
   text-align: center;
